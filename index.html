@@ -1,0 +1,1507 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Descubrí Salta con nuestros city tours. Conocé su historia, arquitectura, cultura y paisajes junto a guías locales.">
+  <title>Norte Vivo Turismo | Descubrí Salta</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --green: #183e35;
+      --green-light: #2c6251;
+      --cream: #f8f6ef;
+      --gold: #d7a85d;
+      --dark: #202a26;
+      --gray: #707873;
+      --white: #ffffff;
+      --radius: 18px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 85px;
+    }
+
+    body {
+      font-family: "DM Sans", sans-serif;
+      color: var(--dark);
+      background: var(--white);
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      object-fit: cover;
+    }
+
+    .container {
+      width: min(1160px, 90%);
+      margin-inline: auto;
+    }
+
+    h1, h2, h3 {
+      font-family: "Playfair Display", serif;
+      line-height: 1.2;
+    }
+
+    h2 {
+      font-size: clamp(2rem, 4vw, 3.1rem);
+      margin-bottom: 16px;
+    }
+
+    .section-label {
+      display: inline-block;
+      color: var(--green-light);
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 14px;
+    }
+
+    .section-heading {
+      max-width: 680px;
+      margin-bottom: 42px;
+    }
+
+    .section-heading p {
+      color: var(--gray);
+      max-width: 600px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      padding: 14px 23px;
+      border-radius: 7px;
+      font-size: 0.92rem;
+      font-weight: 700;
+      transition: 0.25s ease;
+      cursor: pointer;
+      border: 1px solid transparent;
+    }
+
+    .btn-primary {
+      color: white;
+      background: var(--green);
+    }
+
+    .btn-primary:hover {
+      background: var(--green-light);
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      color: white;
+      border-color: rgba(255,255,255,.7);
+    }
+
+    .btn-outline:hover {
+      background: white;
+      color: var(--green);
+    }
+
+    /* Navegación */
+
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255,255,255,.97);
+      border-bottom: 1px solid #ecece7;
+    }
+
+    .nav-inner {
+      min-height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 25px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      color: var(--green);
+    }
+
+    .brand-icon {
+      width: 43px;
+      height: 43px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      color: var(--gold);
+      background: var(--green);
+      font-size: 1.3rem;
+    }
+
+    .brand-name {
+      font-family: "Playfair Display", serif;
+      font-size: 1.35rem;
+      font-weight: 700;
+      line-height: 1.15;
+    }
+
+    .brand small {
+      display: block;
+      font-family: "DM Sans", sans-serif;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      margin-top: 4px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 27px;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .nav-links a:not(.btn):hover {
+      color: var(--green-light);
+    }
+
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.8rem;
+      color: var(--green);
+      cursor: pointer;
+    }
+
+    /* Portada */
+
+    .hero {
+      min-height: 660px;
+      display: flex;
+      align-items: center;
+      position: relative;
+      color: white;
+      background:
+        linear-gradient(90deg, rgba(12,30,26,.82) 0%, rgba(12,30,26,.53) 48%, rgba(12,30,26,.12) 100%),
+        url("./imagenes/plaza-9-de-julio-salta-argentina-BB5JTK.jpg")
+        center 48% / cover no-repeat;
+    }
+
+    .hero-content {
+      max-width: 760px;
+      padding: 90px 0;
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 8px 13px;
+      margin-bottom: 25px;
+      border: 1px solid rgba(255,255,255,.5);
+      border-radius: 50px;
+      background: rgba(255,255,255,.1);
+      font-size: .8rem;
+      letter-spacing: .5px;
+    }
+
+    .hero h1 {
+      font-size: clamp(3rem, 7vw, 5.6rem);
+      max-width: 780px;
+      margin-bottom: 24px;
+      letter-spacing: -1.5px;
+    }
+
+    .hero h1 span {
+      color: #edc57e;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      max-width: 550px;
+      color: rgba(255,255,255,.9);
+      margin-bottom: 32px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .hero-note {
+      display: flex;
+      gap: 22px;
+      flex-wrap: wrap;
+      margin-top: 45px;
+      font-size: .85rem;
+      color: rgba(255,255,255,.9);
+    }
+
+    /* Franja de beneficios */
+
+    .benefit-strip {
+      background: var(--green);
+      color: white;
+    }
+
+    .benefit-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      padding: 25px 0;
+      gap: 25px;
+    }
+
+    .benefit {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    .benefit-icon {
+      color: var(--gold);
+      font-size: 1.5rem;
+    }
+
+    .benefit strong {
+      display: block;
+      font-size: .92rem;
+    }
+
+    .benefit small {
+      color: #d6e1dc;
+      font-size: .8rem;
+    }
+
+    /* Excursiones */
+
+    .tours {
+      padding: 100px 0;
+      background: var(--cream);
+    }
+
+    .section-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 25px;
+    }
+
+    .tour-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 25px;
+    }
+
+    .tour-card {
+      background: white;
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 8px 30px rgba(30,50,40,.06);
+      transition: transform .3s, box-shadow .3s;
+    }
+
+    .tour-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 15px 35px rgba(30,50,40,.12);
+    }
+
+    .tour-image {
+      height: 240px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .tour-image img {
+      height: 100%;
+      transition: transform .5s;
+    }
+
+    .tour-card:hover .tour-image img {
+      transform: scale(1.05);
+    }
+
+    .tour-tag {
+      position: absolute;
+      left: 16px;
+      top: 16px;
+      background: white;
+      color: var(--green);
+      border-radius: 5px;
+      padding: 6px 10px;
+      font-size: .75rem;
+      font-weight: 700;
+    }
+
+    .tour-body {
+      padding: 25px;
+    }
+
+    .tour-meta {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      color: var(--gray);
+      font-size: .8rem;
+      margin-bottom: 14px;
+    }
+
+    .tour-body h3 {
+      font-size: 1.55rem;
+      margin-bottom: 12px;
+    }
+
+    .tour-body p {
+      color: var(--gray);
+      font-size: .92rem;
+      margin-bottom: 22px;
+    }
+
+    .tour-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      padding-top: 18px;
+      border-top: 1px solid #eeeeea;
+    }
+
+    .tour-footer span {
+      color: var(--green);
+      font-size: .85rem;
+      font-weight: 700;
+    }
+
+    .tour-footer a {
+      color: var(--green);
+      font-weight: 700;
+      font-size: .9rem;
+    }
+
+    /* Destinos */
+
+    .destinations {
+      padding: 100px 0;
+    }
+
+    .destination-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 1fr 1fr;
+      grid-template-rows: 230px 230px;
+      gap: 18px;
+    }
+
+    .destination {
+      position: relative;
+      overflow: hidden;
+      border-radius: 12px;
+      background: #d8ddd7;
+    }
+
+    .destination:first-child {
+      grid-row: span 2;
+    }
+
+    .destination img {
+      height: 100%;
+      transition: transform .5s;
+    }
+
+    .destination:hover img {
+      transform: scale(1.06);
+    }
+
+    .destination::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(0deg, rgba(10,25,20,.8), transparent 70%);
+    }
+
+    .destination-caption {
+      position: absolute;
+      z-index: 1;
+      bottom: 22px;
+      left: 22px;
+      right: 15px;
+      color: white;
+    }
+
+    .destination-caption h3 {
+      font-size: 1.5rem;
+      margin-bottom: 5px;
+    }
+
+    .destination-caption p {
+      font-size: .82rem;
+      color: #f1f1ee;
+    }
+
+    /* Sobre nosotros */
+
+    .about {
+      padding: 100px 0;
+      background: var(--cream);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 75px;
+    }
+
+    .about-image {
+      position: relative;
+      min-height: 470px;
+    }
+
+    .about-image img {
+      height: 470px;
+      border-radius: 150px 150px 15px 15px;
+    }
+
+    .about-note {
+      position: absolute;
+      right: -20px;
+      bottom: 30px;
+      background: var(--green);
+      color: white;
+      padding: 22px 25px;
+      border-radius: 10px;
+      max-width: 210px;
+      box-shadow: 0 12px 30px rgba(0,0,0,.15);
+    }
+
+    .about-note strong {
+      display: block;
+      color: #edc57e;
+      font-family: "Playfair Display", serif;
+      font-size: 1.5rem;
+    }
+
+    .about-note span {
+      font-size: .82rem;
+    }
+
+    .about-copy > p {
+      color: var(--gray);
+      margin-bottom: 25px;
+    }
+
+    .about-points {
+      display: grid;
+      gap: 18px;
+      margin-bottom: 30px;
+    }
+
+    .about-point {
+      display: flex;
+      gap: 14px;
+      align-items: start;
+    }
+
+    .check {
+      flex-shrink: 0;
+      display: grid;
+      place-items: center;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: #dce9df;
+      color: var(--green);
+      font-weight: 700;
+    }
+
+    .about-point strong {
+      display: block;
+      margin-bottom: 3px;
+    }
+
+    .about-point p {
+      color: var(--gray);
+      font-size: .9rem;
+    }
+
+    /* Llamada a la acción */
+
+    .cta {
+      padding: 85px 0;
+      text-align: center;
+      color: white;
+      background:
+        linear-gradient(rgba(18,52,43,.88), rgba(18,52,43,.88)),
+        url("https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1600&q=80")
+        center / cover;
+    }
+
+    .cta h2 {
+      max-width: 700px;
+      margin: 0 auto 18px;
+    }
+
+    .cta p {
+      max-width: 580px;
+      margin: 0 auto 28px;
+      color: #e1e8e3;
+    }
+
+    /* Contacto */
+
+    .contact {
+      padding: 90px 0;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: .85fr 1.15fr;
+      gap: 60px;
+    }
+
+    .contact-info > p {
+      color: var(--gray);
+      margin-bottom: 28px;
+    }
+
+    .contact-item {
+      display: flex;
+      gap: 14px;
+      align-items: start;
+      margin: 23px 0;
+    }
+
+    .contact-item .contact-icon {
+      font-size: 1.4rem;
+      color: var(--green-light);
+    }
+
+    .contact-item strong {
+      display: block;
+      margin-bottom: 3px;
+    }
+
+    .contact-item p,
+    .contact-item a {
+      font-size: .9rem;
+      color: var(--gray);
+    }
+
+    .contact-form {
+      padding: 32px;
+      border-radius: 14px;
+      background: var(--cream);
+    }
+
+    .contact-form h3 {
+      font-size: 1.7rem;
+      margin-bottom: 8px;
+    }
+
+    .contact-form > p {
+      color: var(--gray);
+      font-size: .9rem;
+      margin-bottom: 23px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .form-group {
+      margin-bottom: 17px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: .85rem;
+      font-weight: 600;
+      margin-bottom: 7px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 13px 14px;
+      font: inherit;
+      font-size: .9rem;
+      color: var(--dark);
+      border: 1px solid #dedfd7;
+      border-radius: 7px;
+      background: white;
+      outline: none;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--green-light);
+      box-shadow: 0 0 0 3px rgba(44,98,81,.1);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    .contact-form .btn {
+      width: 100%;
+    }
+
+    /* Pie de página */
+
+    .footer {
+      background: #122e27;
+      color: white;
+      padding: 55px 0 20px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 45px;
+      padding-bottom: 38px;
+    }
+
+    .footer .brand {
+      color: white;
+      margin-bottom: 20px;
+    }
+
+    .footer-description {
+      max-width: 340px;
+      color: #bdcdc5;
+      font-size: .9rem;
+    }
+
+    .footer h4 {
+      margin-bottom: 17px;
+      font-size: .95rem;
+    }
+
+    .footer-links {
+      display: grid;
+      gap: 10px;
+      color: #bdcdc5;
+      font-size: .88rem;
+    }
+
+    .footer-links a:hover {
+      color: #edc57e;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,.15);
+      padding-top: 20px;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      color: #bdcdc5;
+      font-size: .8rem;
+    }
+
+    /* Botón flotante WhatsApp */
+
+    .whatsapp-float {
+      position: fixed;
+      right: 23px;
+      bottom: 23px;
+      z-index: 200;
+      display: grid;
+      place-items: center;
+      width: 58px;
+      height: 58px;
+      background: #25d366;
+      color: white;
+      border-radius: 50%;
+      box-shadow: 0 5px 20px rgba(0,0,0,.2);
+      font-size: 1.7rem;
+      transition: transform .2s;
+    }
+
+    .whatsapp-float:hover {
+      transform: scale(1.08);
+    }
+
+    /* Adaptación a dispositivos */
+
+    @media (max-width: 900px) {
+      .nav-links {
+        gap: 16px;
+      }
+
+      .nav-links .btn {
+        padding: 11px 15px;
+      }
+
+      .tour-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .about-grid {
+        gap: 40px;
+      }
+
+      .destination-grid {
+        grid-template-rows: 200px 200px;
+      }
+
+      .contact-grid {
+        gap: 30px;
+      }
+    }
+
+    @media (max-width: 680px) {
+      .nav-inner {
+        min-height: 70px;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        right: 0;
+        padding: 22px 5%;
+        background: white;
+        border-bottom: 1px solid #eee;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 18px;
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .nav-links .btn {
+        width: 100%;
+      }
+
+      .hero {
+        min-height: 600px;
+        background-position: center;
+      }
+
+      .hero-content {
+        padding: 70px 0;
+      }
+
+      .hero h1 {
+        font-size: clamp(2.8rem, 12vw, 4.2rem);
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+
+      .benefit-grid {
+        grid-template-columns: 1fr;
+        gap: 22px;
+        padding: 28px 0;
+      }
+
+      .benefit {
+        justify-content: flex-start;
+      }
+
+      .tours,
+      .destinations,
+      .about,
+      .contact {
+        padding: 70px 0;
+      }
+
+      .section-top {
+        display: block;
+      }
+
+      .tour-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .tour-image {
+        height: 245px;
+      }
+
+      .destination-grid {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 270px 180px 180px;
+      }
+
+      .destination:first-child {
+        grid-column: span 2;
+        grid-row: span 1;
+      }
+
+      .destination-caption {
+        bottom: 14px;
+        left: 14px;
+      }
+
+      .destination-caption h3 {
+        font-size: 1.2rem;
+      }
+
+      .destination-caption p {
+        font-size: .75rem;
+      }
+
+      .about-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .about-image {
+        min-height: 380px;
+        margin-right: 15px;
+      }
+
+      .about-image img {
+        height: 380px;
+      }
+
+      .about-note {
+        right: -15px;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+
+      .contact-form {
+        padding: 23px;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *, *::before, *::after {
+        transition-duration: .01ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVEGACIÓN -->
+  <header class="navbar">
+    <div class="container nav-inner">
+
+      <a href="#inicio" class="brand" aria-label="Norte Vivo Turismo, inicio">
+        <div class="brand-icon">✦</div>
+        <div class="brand-name">
+          Norte Vivo
+          <small>TURISMO · SALTA</small>
+        </div>
+      </a>
+
+      <button
+        class="menu-toggle"
+        id="menuToggle"
+        aria-label="Abrir menú"
+        aria-expanded="false"
+        aria-controls="navLinks">
+        ☰
+      </button>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="#inicio">Inicio</a>
+        <a href="#tours">City tours</a>
+        <a href="#destinos">Lugares</a>
+        <a href="#nosotros">Nosotros</a>
+        <a href="#contacto" class="btn btn-primary">Reservar ahora ↗</a>
+      </nav>
+
+    </div>
+  </header>
+
+  <main>
+
+    <!-- PORTADA -->
+    <section class="hero" id="inicio">
+      <div class="container">
+        <div class="hero-content">
+
+          <div class="hero-tag">
+            ✦ EXPERIENCIAS AUTÉNTICAS EN EL NORTE ARGENTINO
+          </div>
+
+          <h1>
+            Salta tiene una historia.
+            <span>Vení a vivirla.</span>
+          </h1>
+
+          <p>
+            Descubrí la magia de Salta Capital, sus calles coloniales,
+            su cultura y sus paisajes. Nosotros te acompañamos.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#tours" class="btn btn-primary">
+              Descubrir nuestros tours →
+            </a>
+
+            <a href="#contacto" class="btn btn-outline">
+              Planificar mi visita
+            </a>
+          </div>
+
+          <div class="hero-note">
+            <span>✦ Recorridos por la ciudad</span>
+            <span>✦ Experiencias culturales</span>
+            <span>✦ Atención personalizada</span>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- BENEFICIOS -->
+    <section class="benefit-strip">
+      <div class="container benefit-grid">
+
+        <div class="benefit">
+          <span class="benefit-icon">◎</span>
+          <div>
+            <strong>Guías locales</strong>
+            <small>Conocé la ciudad desde adentro</small>
+          </div>
+        </div>
+
+        <div class="benefit">
+          <span class="benefit-icon">◇</span>
+          <div>
+            <strong>Experiencias a tu medida</strong>
+            <small>Recorridos para distintos intereses</small>
+          </div>
+        </div>
+
+        <div class="benefit">
+          <span class="benefit-icon">♡</span>
+          <div>
+            <strong>Atención cercana</strong>
+            <small>Te ayudamos a planificar tu visita</small>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- TOURS -->
+    <section class="tours" id="tours">
+      <div class="container">
+
+        <div class="section-top">
+          <div class="section-heading">
+            <span class="section-label">Nuestras experiencias</span>
+            <h2>Descubrí Salta a tu manera</h2>
+            <p>
+              Desde los rincones históricos hasta las mejores vistas
+              panorámicas. Elegí tu recorrido ideal.
+            </p>
+          </div>
+        </div>
+
+        <div class="tour-grid">
+
+          <article class="tour-card">
+            <div class="tour-image">
+              <img
+                src="./imagenes/Catedral_de_Salta_1.jpg"
+                alt="Vista urbana para representar un recorrido por la ciudad"
+                loading="lazy">
+              <span class="tour-tag">Ideal para conocer la ciudad</span>
+            </div>
+
+            <div class="tour-body">
+              <div class="tour-meta">
+                <span>◷ 2 a 3 horas</span>
+                <span>◎ Recorrido urbano</span>
+              </div>
+
+              <h3>City Tour Clásico</h3>
+
+              <p>
+                Recorré el centro histórico, la Plaza 9 de Julio,
+                la Catedral Basílica y los principales puntos
+                culturales de la ciudad.
+              </p>
+
+              <div class="tour-footer">
+                <span>Consultar disponibilidad</span>
+                <a href="#contacto" data-tour="City Tour Clásico">
+                  Consultar →
+                </a>
+              </div>
+            </div>
+          </article>
+         
+
+        </div>
+      </div>
+    </section>
+
+    <!-- LUGARES DESTACADOS -->
+    <section class="destinations" id="destinos">
+      <div class="container">
+
+        <div class="section-heading">
+          <span class="section-label">Lugares imperdibles</span>
+          <h2>El encanto de Salta está en cada rincón</h2>
+          <p>
+            Historia, arquitectura, cultura y paisajes que hacen
+            de nuestra ciudad un destino inolvidable.
+          </p>
+        </div>
+
+        <div class="destination-grid">
+
+          <article class="destination">
+            <img
+              src="./imagenes/Salta-SFrancisco1.jpg"
+              alt="Arquitectura monumental"
+              loading="lazy">
+
+            <div class="destination-caption">
+              <h3>Centro Histórico</h3>
+              <p>Tradición, arquitectura y cultura.</p>
+            </div>
+          </article>
+
+          <article class="destination">
+            <img
+              src="./imagenes/plaza_9_de_julio.jfif"
+              alt="Paisaje urbano"
+              loading="lazy">
+
+            <div class="destination-caption">
+              <h3>Plaza 9 de Julio</h3>
+              <p>El corazón de la ciudad.</p>
+            </div>
+          </article>
+
+          <article class="destination">
+            <img
+              src="./imagenes/595-907093-resizedBTELEFERICO-9.jpg"
+              alt="Montañas y paisajes naturales"
+              loading="lazy">
+
+            <div class="destination-caption">
+              <h3>Cerro San Bernardo</h3>
+              <p>Salta desde otra perspectiva.</p>
+            </div>
+          </article>
+
+          <article class="destination">
+            <img
+              src="./imagenes/mercado_artesanal.jpg"
+              alt="Edificio de interés histórico"
+              loading="lazy">
+
+            <div class="destination-caption">
+              <h3>Mercado artesanal</h3>
+              <p>Llevate parte de nuestra cultura.</p>
+            </div>
+          </article>
+
+          <article class="destination">
+            <img
+              src="./imagenes/casona_del_molino.webp"
+              alt="Paisaje natural al aire libre"
+              loading="lazy">
+
+            <div class="destination-caption">
+              <h3>Casona de molino</h3>
+              <p>Distruta de los mejores platos del norte argentino.</p>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SOBRE NOSOTROS -->
+    <section class="about" id="nosotros">
+      <div class="container about-grid">
+
+        <div class="about-image">
+          <img
+            src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1000&q=85"
+            alt="Paisaje natural que inspira a descubrir nuevos destinos"
+            loading="lazy">
+
+          <div class="about-note">
+            <strong>Viví Salta</strong>
+            <span>Descubrí sus historias, su gente y sus paisajes.</span>
+          </div>
+        </div>
+
+        <div class="about-copy">
+          <span class="section-label">Quiénes somos</span>
+          <h2>Más que un tour, una experiencia para recordar</h2>
+
+          <p>
+            En Norte Vivo Turismo creemos que viajar es mucho más
+            que visitar lugares: es conocer historias, compartir
+            momentos y conectar con la identidad de cada destino.
+          </p>
+
+          <div class="about-points">
+
+            <div class="about-point">
+              <span class="check">✓</span>
+              <div>
+                <strong>Una mirada local</strong>
+                <p>Descubrí detalles y rincones que hacen única a Salta.</p>
+              </div>
+            </div>
+
+            <div class="about-point">
+              <span class="check">✓</span>
+              <div>
+                <strong>Recorridos para vos</strong>
+                <p>Te orientamos para encontrar la experiencia que buscás.</p>
+              </div>
+            </div>
+
+            <div class="about-point">
+              <span class="check">✓</span>
+              <div>
+                <strong>Atención personalizada</strong>
+                <p>Te acompañamos desde la consulta hasta la planificación.</p>
+              </div>
+            </div>
+
+          </div>
+
+          <a href="#contacto" class="btn btn-primary">
+            Organicemos tu visita →
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- LLAMADA A LA ACCIÓN -->
+    <section class="cta">
+      <div class="container">
+        <span class="section-label" style="color:#edc57e">
+          Tu próxima aventura comienza acá
+        </span>
+
+        <h2>¿Listo para enamorarte de Salta?</h2>
+
+        <p>
+          Contanos cuándo venís y qué te gustaría conocer.
+          Te ayudamos a organizar un recorrido para disfrutar
+          al máximo tu estadía.
+        </p>
+
+        <a href="#contacto" class="btn btn-primary">
+          Quiero conocer Salta →
+        </a>
+      </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section class="contact" id="contacto">
+      <div class="container contact-grid">
+
+        <div class="contact-info">
+          <span class="section-label">Hablemos de tu viaje</span>
+          <h2>Empezá a planificar tu experiencia</h2>
+
+          <p>
+            Escribinos para consultar recorridos, disponibilidad,
+            tarifas y opciones para tu grupo.
+          </p>
+
+          <div class="contact-item">
+            <span class="contact-icon">⌖</span>
+            <div>
+              <strong>Ubicación</strong>
+              <p>Salta Capital, Argentina</p>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <span class="contact-icon">◷</span>
+            <div>
+              <strong>Consultas</strong>
+              <p>Coordiná tu recorrido con anticipación.</p>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <span class="contact-icon">✉</span>
+            <div>
+              <strong>Atención personalizada</strong>
+              <p>Respondemos tus consultas por WhatsApp.</p>
+            </div>
+          </div>
+        </div>
+
+        <form class="contact-form" id="contactForm">
+          <h3>Solicitá información</h3>
+          <p>Completá tus datos y prepararemos tu consulta por WhatsApp.</p>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="nombre">Nombre</label>
+              <input
+                type="text"
+                id="nombre"
+                name="nombre"
+                placeholder="Tu nombre"
+                autocomplete="given-name"
+                required>
+            </div>
+
+            <div class="form-group">
+              <label for="personas">Cantidad de personas</label>
+              <select id="personas" name="personas" required>
+                <option value="">Seleccionar</option>
+                <option>1 persona</option>
+                <option>2 personas</option>
+                <option>3 a 5 personas</option>
+                <option>6 a 10 personas</option>
+                <option>Más de 10 personas</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="tour">Experiencia de interés</label>
+            <select id="tour" name="tour" required>
+              <option value="">Elegí un recorrido</option>
+              <option>City Tour Clásico</option>
+              <option>Salta desde las Alturas</option>
+              <option>Salta Histórica</option>
+              <option>Quiero una propuesta personalizada</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="fecha">Fecha estimada de visita</label>
+            <input type="date" id="fecha" name="fecha">
+          </div>
+
+          <div class="form-group">
+            <label for="mensaje">¿Querés contarnos algo más?</label>
+            <textarea
+              id="mensaje"
+              name="mensaje"
+              placeholder="Contanos qué te gustaría conocer..."></textarea>
+          </div>
+          
+          <button type="submit" class="btn btn-primary">
+            Consultar por WhatsApp ↗
+          </button>
+          
+          
+        </form>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- PIE DE PÁGINA -->
+  <footer class="footer">
+    <div class="container">
+
+      <div class="footer-grid">
+
+        <div>
+          <a href="#inicio" class="brand">
+            <div class="brand-icon">✦</div>
+            <div class="brand-name">
+              Norte Vivo
+              <small>TURISMO · SALTA</small>
+            </div>
+          </a>
+
+          <p class="footer-description">
+            Descubrí Salta con experiencias que conectan
+            historia, cultura y naturaleza.
+          </p>
+        </div>
+
+        <div>
+          <h4>Explorá</h4>
+          <div class="footer-links">
+            <a href="#tours">Nuestros city tours</a>
+            <a href="#destinos">Lugares destacados</a>
+            <a href="#nosotros">Sobre nosotros</a>
+          </div>
+        </div>
+
+        <div>
+          <h4>Contacto</h4>
+          <div class="footer-links">
+            <a href="#contacto">Solicitar información</a>
+            <a href="#contacto">Consultar tarifas</a>
+            <a href="#contacto">Organizar un recorrido</a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <span>© <span id="year"></span> Norte Vivo Turismo. Todos los derechos reservados.</span>
+        <span>Hecho para descubrir la belleza de Salta.</span>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- WHATSAPP FLOTANTE -->
+  <a
+    class="whatsapp-float"
+    id="whatsappFloat"
+    href="#contacto"
+    aria-label="Contactar por WhatsApp"
+    title="Contactanos por WhatsApp">
+    ☏
+  </a>
+
+  <script>
+    // IMPORTANTE:
+    // Reemplazá este número por el WhatsApp real de la agencia.
+    // Formato internacional, solo números, sin +, espacios ni guiones.
+    const WHATSAPP_NUMBER = "5493874797306";
+
+    // Menú móvil
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+
+    menuToggle.addEventListener("click", () => {
+      const isOpen = navLinks.classList.toggle("open");
+      menuToggle.setAttribute("aria-expanded", String(isOpen));
+      menuToggle.setAttribute(
+        "aria-label",
+        isOpen ? "Cerrar menú" : "Abrir menú"
+      );
+      menuToggle.textContent = isOpen ? "✕" : "☰";
+    });
+
+    // Cerrar el menú después de elegir una sección
+    navLinks.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("open");
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.setAttribute("aria-label", "Abrir menú");
+        menuToggle.textContent = "☰";
+      });
+    });
+
+    // Año automático
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+
+    // Preparar consultas de los tours
+    document.querySelectorAll("[data-tour]").forEach(link => {
+      link.addEventListener("click", () => {
+        document.getElementById("tour").value = link.dataset.tour;
+      });
+    });
+
+    // Formulario: abre WhatsApp con los datos completados
+    document.getElementById("contactForm").addEventListener(
+      "submit",
+      function(event) {
+        event.preventDefault();
+
+        if (!this.reportValidity()) return;
+
+        const nombre = document.getElementById("nombre").value.trim();
+        const personas = document.getElementById("personas").value;
+        const tour = document.getElementById("tour").value;
+        const fecha = document.getElementById("fecha").value;
+        const mensaje = document.getElementById("mensaje").value.trim();
+
+        const texto = [
+          "¡Hola! Quiero consultar por un city tour en Salta.",
+          "",
+          "Nombre: " + nombre,
+          "Cantidad de personas: " + personas,
+          "Experiencia: " + tour,
+          "Fecha estimada: " + (fecha || "A coordinar"),
+          "Mensaje: " + (mensaje || "Sin comentarios adicionales")
+        ].join("\n");
+
+        const url = "https://wa.me/" + WHATSAPP_NUMBER +
+          "?text=" + encodeURIComponent(texto);
+
+        window.open(url, "_blank", "noopener,noreferrer");
+      }
+    );
+
+    // Botón flotante: abre el chat de WhatsApp
+    document.getElementById("whatsappFloat").addEventListener(
+      "click",
+      function(event) {
+        event.preventDefault();
+
+        if (WHATSAPP_NUMBER === "5493870000000") {
+          document.getElementById("contacto").scrollIntoView({
+            behavior: "smooth"
+          });
+          return;
+        }
+
+        window.open(
+          "https://wa.me/" + WHATSAPP_NUMBER,
+          "_blank",
+          "noopener,noreferrer"
+        );
+      }
+    );
+  </script>
+
+</body>
+</html>
